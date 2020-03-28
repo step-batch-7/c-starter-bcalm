@@ -5,6 +5,7 @@ unsigned char is_odd(int);
 int square(int);
 int cube(int);
 int greatest_common_divisor(int, int);
+int lcm(int, int);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -29,6 +30,13 @@ int greatest_common_divisor(int number1, int number2){
   return greatest_common_divisor(number2 % number1, number1);
 }
 
+int lcm(int number1, int number2){
+  int gcd = greatest_common_divisor(number1, number2);
+  int product = number1 * number2;
+  printf("%d", product/gcd);
+  return product / gcd;
+}
+
 int main(void){
   int number, number1, number2 ;
   printf("Enter the number: ");
@@ -37,11 +45,12 @@ int main(void){
   printf("%d is %s \n", number, is_odd(number) ? "Odd" : "Not odd");
   printf("Square of %d is %d \n", number, square(number));
   printf("Cube of %d is %d \n", number, cube(number));
-  printf("Enter two numbers for calculating G.C.D.\n ");
+  printf("Enter two numbers for calculating G.C.D.\n");
   printf("Enter first number: ");
   scanf("%d", &number1);
   printf("Enter second number: ");
   scanf("%d", &number2);
-  printf("G.C.D. of %d and %d is %d \n", number1, number2, greatest_common_divisor(number1, number2));
+  printf("GCD of %d and %d is %d \n", number1, number2, greatest_common_divisor(number1, number2));
+  printf("LCM of %d and %d is %d \n", number1, number2, lcm(number1, number2));
   return 0;
 }

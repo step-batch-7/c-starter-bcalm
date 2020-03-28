@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 unsigned long int factorial(int);
-void fibonacci(int);
+int fibonacci(int);
+int display_odd_series(int);
 
 unsigned long int factorial(int number)
 {
@@ -13,7 +14,7 @@ unsigned long int factorial(int number)
   return fact;
 }
 
-void fibonacci(int fibonacciTerm)
+int fibonacci(int fibonacciTerm)
 {
   int firstNumber = -1;
   int secondNumber = 1;
@@ -22,8 +23,18 @@ void fibonacci(int fibonacciTerm)
     int sum = firstNumber + secondNumber;
     firstNumber = secondNumber;
     secondNumber = sum;
-    printf("%d fibonacci term is %d \n", term, secondNumber);
+    printf("%d \n", secondNumber);
   }
+  return 0;
+}
+
+int display_odd_series(int number)
+{
+  for (int current_number = 1; current_number < number; current_number += 2)
+  {
+    printf("%d\n", current_number);
+  }
+  return 0;
 }
 
 int main(void)
@@ -32,8 +43,11 @@ int main(void)
   printf("Enter a number for calculating factorial: ");
   scanf("%d", &number);
   printf("Factorial of %d is %lu \n", number, factorial(number));
-  printf("Enter a number for till you want to print fibonacci series: ");
+  printf("Enter a number for series: ");
   scanf("%d", &number);
+  printf("Fibonacci Series: \n");
   fibonacci(number);
+  printf("Odd series: \n");
+  display_odd_series(number);
   return 0;
 }

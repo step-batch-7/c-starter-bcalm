@@ -7,6 +7,7 @@ int print_alternative_number(int, int);
 int multiplication_table(int, int);
 int sum_of_n_numbers(int, int);
 int product_of_n_numbers(int, int);
+int print_odd_numbers(int,int);
 
 unsigned long int factorial(int number)
 {
@@ -84,6 +85,11 @@ int product_of_n_numbers(int start_number, int end_number)
   return product;
 }
 
+int print_odd_numbers(int start_number, int end_number){
+  int current_number = start_number % 2 ? start_number: start_number + 1;
+  return print_alternative_number(current_number, end_number); 
+}
+
 int main(void)
 {
   int number, number1, number2;
@@ -116,5 +122,11 @@ int main(void)
   printf("Enter second number: ");
   scanf("%d", &number2);
   printf("Product of all numbers b/w %d and %d is %d\n", number1, number2, product_of_n_numbers(number1, number2));
+  printf("Enter two number for printing odd numbers b/w them:\n");
+  printf("Enter first number: ");
+  scanf("%d", &number1);
+  printf("Enter second number: ");
+  scanf("%d", &number2);
+  print_odd_numbers(number1,number2);
   return 0;
 }

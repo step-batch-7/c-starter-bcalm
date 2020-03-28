@@ -6,6 +6,7 @@ int square(int);
 int cube(int);
 int greatest_common_divisor(int, int);
 int lcm(int, int);
+double simple_interest(int, int, int);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -33,12 +34,15 @@ int greatest_common_divisor(int number1, int number2){
 int lcm(int number1, int number2){
   int gcd = greatest_common_divisor(number1, number2);
   int product = number1 * number2;
-  printf("%d", product/gcd);
   return product / gcd;
 }
 
+double simple_interest(int principal, int rate_of_interest, int time){
+  return (principal*rate_of_interest*time)/100;
+}
+
 int main(void){
-  int number, number1, number2 ;
+  int number, number1, number2, principal, rate_of_interest, time;
   printf("Enter the number: ");
   scanf("%d", &number);
   printf("%d is %s \n", number, is_even(number) ? "Even" : "Not even");
@@ -52,5 +56,13 @@ int main(void){
   scanf("%d", &number2);
   printf("GCD of %d and %d is %d \n", number1, number2, greatest_common_divisor(number1, number2));
   printf("LCM of %d and %d is %d \n", number1, number2, lcm(number1, number2));
+  printf("Enter details for calculating simple interest\n");
+  printf("Enter amount: ");
+  scanf("%d", &principal);
+  printf("Enter rate of interest: ");
+  scanf("%d", &rate_of_interest);
+  printf("Enter time(In year): ");
+  scanf("%d", &time);
+  printf("Simple interest is %f \n", simple_interest(principal,rate_of_interest,time));
   return 0;
 }

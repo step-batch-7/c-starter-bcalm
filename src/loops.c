@@ -3,6 +3,7 @@
 unsigned long int factorial(int);
 int fibonacci(int);
 int display_odd_series(int);
+int display_alternative_number(int, int);
 
 unsigned long int factorial(int number)
 {
@@ -28,13 +29,24 @@ int fibonacci(int fibonacciTerm)
   return 0;
 }
 
-int display_odd_series(int number)
-{
-  for (int current_number = 1; current_number < number; current_number += 2)
+int display_alternative_number(int start_from, int upto)
+{ 
+  while(start_from < upto)
   {
-    printf("%d\n", current_number);
+    printf("%d\n", start_from);
+    start_from += 2;
   }
   return 0;
+}
+
+int display_odd_series(int number)
+{
+  return display_alternative_number(1, number);
+}
+
+int display_even_series(int number)
+{
+  return display_alternative_number(2, number);
 }
 
 int main(void)
@@ -49,5 +61,7 @@ int main(void)
   fibonacci(number);
   printf("Odd series: \n");
   display_odd_series(number);
+  printf("Even series: \n");
+  display_even_series(number);
   return 0;
 }

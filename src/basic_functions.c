@@ -1,14 +1,19 @@
 #include <stdio.h>
 
-unsigned char isEven(int);
-unsigned char isOdd(int);
+unsigned char is_even(int);
+unsigned char is_odd(int);
+int square(int);
 
-unsigned char isEven(int number){
+unsigned char is_even(int number){
   return number % 2 == 0;
 }
 
-unsigned char isOdd(int number){
-  return (!isEven(number));
+unsigned char is_odd(int number){
+  return (!is_even(number));
+}
+
+int square(int number){
+  return number * number;
 }
 
 int main(void){

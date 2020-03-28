@@ -12,6 +12,8 @@ double compound_interest(int, float, float);
 float fahrenheit_to_centigrade(float);
 float centigrade_to_fahrenheit(float);
 double average_of_three(int, int, int);
+int greater_of_two(int, int);
+int greater_of_three(int, int, int);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -62,6 +64,15 @@ double average_of_three(int number1, int number2, int number3){
   return (number1 + number2 + number3) / 3.00;
 }
 
+int greater_of_two(int number1, int number2){
+  return number1 >= number2 ? number1 : number2;
+}
+
+int greater_of_three(int number1, int number2, int number3){
+  int greatest = greater_of_two(number1, number2);
+  return greater_of_two(greatest, number3);
+}
+
 int main(void){
   int number, number1, number2, number3, principal;
   float rate_of_interest, time, fahrenheit_temp, centigrade_temp;
@@ -93,7 +104,7 @@ int main(void){
   printf("Enter temp(In centigrade): ");
   scanf("%f", &centigrade_temp);
   printf("%f centigrade temperature is equal to %f fahrenheit\n",centigrade_temp,centigrade_to_fahrenheit(centigrade_temp));
-  printf("Enter numbers for average:\n");
+  printf("Enter numbers for average and find greatest:\n");
   printf("Enter first number: ");
   scanf("%d", &number1);
   printf("Enter second number: ");
@@ -101,5 +112,6 @@ int main(void){
   printf("Enter third number: ");
   scanf("%d", &number3);
   printf("Average of %d, %d and %d is %f \n", number1, number2, number3, average_of_three(number1, number2, number3));
+  printf("%d is the greatest number\n", greater_of_three(number1, number2, number3));
   return 0;
 }

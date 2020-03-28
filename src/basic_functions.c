@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 unsigned char is_even(int);
 unsigned char is_odd(int);
@@ -6,7 +7,8 @@ int square(int);
 int cube(int);
 int greatest_common_divisor(int, int);
 int lcm(int, int);
-double simple_interest(int, int, int);
+double simple_interest(int, float, float);
+double compound_interest(int, float, float);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -37,8 +39,12 @@ int lcm(int number1, int number2){
   return product / gcd;
 }
 
-double simple_interest(int principal, int rate_of_interest, int time){
+double simple_interest(int principal, float rate_of_interest, float time){
   return (principal*rate_of_interest*time)/100;
+}
+
+double compound_interest(int principal, float rate_of_interest, float time){
+  return principal * pow((1 + rate_of_interest/100), time);
 }
 
 int main(void){
@@ -56,7 +62,7 @@ int main(void){
   scanf("%d", &number2);
   printf("GCD of %d and %d is %d \n", number1, number2, greatest_common_divisor(number1, number2));
   printf("LCM of %d and %d is %d \n", number1, number2, lcm(number1, number2));
-  printf("Enter details for calculating simple interest\n");
+  printf("Enter details for calculating interest\n");
   printf("Enter amount: ");
   scanf("%d", &principal);
   printf("Enter rate of interest: ");
@@ -64,5 +70,6 @@ int main(void){
   printf("Enter time(In year): ");
   scanf("%d", &time);
   printf("Simple interest is %f \n", simple_interest(principal,rate_of_interest,time));
+  printf("Compound interest is %f \n", compound_interest(principal,rate_of_interest,time));
   return 0;
 }

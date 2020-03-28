@@ -11,6 +11,7 @@ double simple_interest(int, float, float);
 double compound_interest(int, float, float);
 float fahrenheit_to_centigrade(float);
 float centigrade_to_fahrenheit(float);
+double average_of_three(int, int, int);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -57,8 +58,12 @@ float centigrade_to_fahrenheit(float centigrade_temp){
   return centigrade_temp * 1.8 + 32;
 }
 
+double average_of_three(int number1, int number2, int number3){
+  return (number1 + number2 + number3) / 3.00;
+}
+
 int main(void){
-  int number, number1, number2, principal;
+  int number, number1, number2, number3, principal;
   float rate_of_interest, time, fahrenheit_temp, centigrade_temp;
   printf("Enter the number: ");
   scanf("%d", &number);
@@ -88,5 +93,13 @@ int main(void){
   printf("Enter temp(In centigrade): ");
   scanf("%f", &centigrade_temp);
   printf("%f centigrade temperature is equal to %f fahrenheit\n",centigrade_temp,centigrade_to_fahrenheit(centigrade_temp));
+  printf("Enter numbers for average:\n");
+  printf("Enter first number: ");
+  scanf("%d", &number1);
+  printf("Enter second number: ");
+  scanf("%d", &number2);
+  printf("Enter third number: ");
+  scanf("%d", &number3);
+  printf("Average of %d, %d and %d is %f \n", number1, number2, number3, average_of_three(number1, number2, number3));
   return 0;
 }

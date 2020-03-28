@@ -9,6 +9,7 @@ int greatest_common_divisor(int, int);
 int lcm(int, int);
 double simple_interest(int, float, float);
 double compound_interest(int, float, float);
+float fahrenheit_to_centigrade(float);
 
 unsigned char is_even(int number){
   return number % 2 == 0;
@@ -47,8 +48,13 @@ double compound_interest(int principal, float rate_of_interest, float time){
   return principal * pow((1 + rate_of_interest/100), time);
 }
 
+float fahrenheit_to_centigrade(float fahrenheit_temp){
+  return (fahrenheit_temp - 32) / 1.8;
+}
+
 int main(void){
-  int number, number1, number2, principal, rate_of_interest, time;
+  int number, number1, number2, principal;
+  float rate_of_interest, time, fahrenheit_temp;
   printf("Enter the number: ");
   scanf("%d", &number);
   printf("%d is %s \n", number, is_even(number) ? "Even" : "Not even");
@@ -66,10 +72,13 @@ int main(void){
   printf("Enter amount: ");
   scanf("%d", &principal);
   printf("Enter rate of interest: ");
-  scanf("%d", &rate_of_interest);
+  scanf("%f", &rate_of_interest);
   printf("Enter time(In year): ");
-  scanf("%d", &time);
+  scanf("%f", &time);
   printf("Simple interest is %f \n", simple_interest(principal,rate_of_interest,time));
   printf("Compound interest is %f \n", compound_interest(principal,rate_of_interest,time));
+  printf("Enter temp(In fahrenheit): ");
+  scanf("%f", &fahrenheit_temp);
+  printf("%f fahrenheit temperature is equal to %f centigrade",fahrenheit_temp,fahrenheit_to_centigrade(fahrenheit_temp));
   return 0;
 }

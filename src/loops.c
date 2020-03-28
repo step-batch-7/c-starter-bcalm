@@ -5,6 +5,7 @@ int fibonacci(int);
 int print_odds(int);
 int print_alternative_number(int, int);
 int multiplication_table(int, int);
+int sum_of_n_numbers(int, int);
 
 unsigned long int factorial(int number)
 {
@@ -59,6 +60,17 @@ int multiplication_table(int mth_term, int nth_term)
   return 0;
 }
 
+int sum_of_n_numbers(int start_number, int end_number)
+{
+  int sum = 0;
+  while(start_number < end_number)
+  {
+    sum = sum + start_number;
+    start_number++;
+  }
+  return sum;
+}
+
 int main(void)
 {
   int number, number1, number2;
@@ -79,5 +91,11 @@ int main(void)
   printf("Enter second number: ");
   scanf("%d", &number2);
   multiplication_table(number1, number2);
+  printf("Enter two numbers for sum all numbers b/w them:\n");
+  printf("Enter first number: ");
+  scanf("%d", &number1);
+  printf("Enter second number: ");
+  scanf("%d", &number2);
+  printf("Sum of all numbers b/w %d and %d is %d", number1, number2, sum_of_n_numbers(number1, number2));
   return 0;
 }

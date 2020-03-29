@@ -3,7 +3,7 @@
 unsigned long int factorial(int);
 int fibonacci(int);
 int print_odds(int);
-int print_alternative_number(int, int);
+int print_numbers(int, int, int);
 int multiplication_table(int, int);
 int sum_of_n_numbers(int, int);
 int product_of_n_numbers(int, int);
@@ -33,24 +33,24 @@ int fibonacci(int fibonacciTerm)
   return 0;
 }
 
-int print_alternative_number(int start_from, int upto)
+int print_numbers(int start_from, int upto, int addition)
 { 
-  while(start_from < upto)
+  while(start_from <= upto)
   {
     printf("%d\n", start_from);
-    start_from += 2;
+    start_from += addition;
   }
   return 0;
 }
 
 int print_odds(int number)
 {
-  return print_alternative_number(1, number);
+  return print_numbers(1, number, 2);
 }
 
 int print_evens(int number)
 {
-  return print_alternative_number(2, number);
+  return print_numbers(2, number, 2);
 }
 
 int multiplication_table(int mth_term, int nth_term)
@@ -85,9 +85,15 @@ int product_of_n_numbers(int start_number, int end_number)
   return product;
 }
 
-int print_odd_numbers(int start_number, int end_number){
+int print_odd_numbers(int start_number, int end_number)
+{
   int current_number = start_number % 2 ? start_number: start_number + 1;
-  return print_alternative_number(current_number, end_number); 
+  return print_numbers(current_number, end_number, 2); 
+}
+
+int print_nth_number(int start_number, int end_number, int addition)
+{
+  return print_numbers(start_number, end_number, addition);
 }
 
 int main(void)
@@ -111,22 +117,30 @@ int main(void)
   scanf("%d", &number2);
   multiplication_table(number1, number2);
   printf("Enter two numbers for sum all numbers b/w them:\n");
-  printf("Enter first number: ");
+  printf("Enter starting range: ");
   scanf("%d", &number1);
-  printf("Enter second number: ");
+  printf("Enter ending range: ");
   scanf("%d", &number2);
   printf("Sum of all numbers b/w %d and %d is %d\n", number1, number2, sum_of_n_numbers(number1, number2));
   printf("Enter two numbers for product all numbers b/w them:\n");
-  printf("Enter first number: ");
+  printf("Enter starting range: ");
   scanf("%d", &number1);
-  printf("Enter second number: ");
+  printf("Enter ending range: ");
   scanf("%d", &number2);
   printf("Product of all numbers b/w %d and %d is %d\n", number1, number2, product_of_n_numbers(number1, number2));
   printf("Enter two number for printing odd numbers b/w them:\n");
-  printf("Enter first number: ");
+  printf("Enter starting range: ");
   scanf("%d", &number1);
-  printf("Enter second number: ");
+  printf("Enter ending range: ");
   scanf("%d", &number2);
   print_odd_numbers(number1,number2);
+  printf("Enter range and addition: \n");
+  printf("Enter starting range: ");
+  scanf("%d", &number1);
+  printf("Enter ending range: ");
+  scanf("%d", &number2);
+  printf("Enter addition: ");
+  scanf("%d", &number);
+  print_nth_number(number1, number2, number);
   return 0;
 }

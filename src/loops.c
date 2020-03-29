@@ -8,6 +8,7 @@ int multiplication_table(int, int);
 int sum_of_n_numbers(int, int);
 int product_of_n_numbers(int, int);
 int print_odd_numbers(int,int);
+int sum_of_even_numbers(int, int);
 
 unsigned long int factorial(int number)
 {
@@ -96,6 +97,18 @@ int print_nth_number(int start_number, int end_number, int addition)
   return print_numbers(start_number, end_number, addition);
 }
 
+int sum_of_even_numbers(int start_number, int end_number)
+{
+  int sum = 0;
+  int current_number = start_number % 2 ? start_number + 1: start_number;
+  while(current_number <= end_number)
+  {
+    sum = sum + current_number;
+    current_number += 2;
+  }
+  return sum;
+}
+
 int main(void)
 {
   int number, number1, number2;
@@ -142,5 +155,11 @@ int main(void)
   printf("Enter addition: ");
   scanf("%d", &number);
   print_nth_number(number1, number2, number);
+  printf("Enter two numbers: \n");
+  printf("Enter starting range: ");
+  scanf("%d", &number1);
+  printf("Enter ending range: ");
+  scanf("%d", &number2);
+  printf("Sum of all even number is %d \n", sum_of_even_numbers(number1, number2));
   return 0;
 }

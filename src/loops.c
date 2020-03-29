@@ -4,11 +4,14 @@ unsigned long int factorial(int);
 int fibonacci(int);
 int print_odds(int);
 int print_numbers(int, int, int);
+int print_evens(int);
 int multiplication_table(int, int);
 int sum_of_n_numbers(int, int);
 int product_of_n_numbers(int, int);
 int print_odd_numbers(int,int);
+int print_nth_number(int, int ,int);
 int sum_of_even_numbers(int, int);
+int print_odd_backwards(int);
 
 unsigned long int factorial(int number)
 {
@@ -109,43 +112,62 @@ int sum_of_even_numbers(int start_number, int end_number)
   return sum;
 }
 
+int print_odd_backwards(int number)
+{
+  int current_number = number % 2 ? number : number -1;
+  while(current_number >= 1)
+  {
+    printf("%d\n", current_number);
+    current_number -= 2;
+  }
+  return 0;
+}
+
 int main(void)
 {
   int number, number1, number2;
   printf("Enter a number for calculating factorial: ");
   scanf("%d", &number);
   printf("Factorial of %d is %lu \n", number, factorial(number));
+
   printf("Enter a number for printing series: ");
   scanf("%d", &number);
   printf("Fibonacci Series: \n");
   fibonacci(number);
+
   printf("Odd series: \n");
   print_odds(number);
+  
   printf("Even series: \n");
   print_evens(number);
+
   printf("Enter two numbers for multiplication table:\n");
   printf("Enter first number: ");
   scanf("%d", &number1);
   printf("Enter second number: ");
   scanf("%d", &number2);
   multiplication_table(number1, number2);
+
   printf("Enter two numbers for sum all numbers b/w them:\n");
   printf("Enter starting range: ");
   scanf("%d", &number1);
   printf("Enter ending range: ");
   scanf("%d", &number2);
   printf("Sum of all numbers b/w %d and %d is %d\n", number1, number2, sum_of_n_numbers(number1, number2));
+  
   printf("Enter two numbers for product all numbers b/w them:\n");
   printf("Enter starting range: ");
   scanf("%d", &number1);
   printf("Enter ending range: ");
   scanf("%d", &number2);
   printf("Product of all numbers b/w %d and %d is %d\n", number1, number2, product_of_n_numbers(number1, number2));
+
   printf("Enter two number for printing odd numbers b/w them:\n");
   printf("Enter starting range: ");
   scanf("%d", &number1);
   printf("Enter ending range: ");
   scanf("%d", &number2);
+
   print_odd_numbers(number1,number2);
   printf("Enter range and addition: \n");
   printf("Enter starting range: ");
@@ -155,11 +177,17 @@ int main(void)
   printf("Enter addition: ");
   scanf("%d", &number);
   print_nth_number(number1, number2, number);
+
   printf("Enter two numbers: \n");
   printf("Enter starting range: ");
   scanf("%d", &number1);
   printf("Enter ending range: ");
   scanf("%d", &number2);
   printf("Sum of all even number is %d \n", sum_of_even_numbers(number1, number2));
+
+  printf("Enter number:");
+  scanf("%d", &number);
+  printf("Odd series in backwards: \n");
+  print_odd_backwards(number);
   return 0;
 }

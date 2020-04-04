@@ -40,7 +40,7 @@ int currency_breakdown(long int amount)
 int main(void)
 {
   long int amount;
-  printf("Enter Amount ");
+  printf("Enter Amount: ");
   scanf("%ld", &amount);
   currency_breakdown(amount);
   return 0;

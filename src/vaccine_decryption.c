@@ -5,7 +5,8 @@ void decryption(int *encrypted_message, char *decrypted_message, int message_len
   {
     for (int term = 0; term < 9; term++)
     {
-      decrypted_message[term] = encrypted_message[term] > 109 ? encrypted_message[term] - rotation : encrypted_message[term] + rotation;
+      int middle_character = encrypted_message[term] >= 96 ? 109 : 77;
+      decrypted_message[term] = encrypted_message[term] > middle_character ? encrypted_message[term] - rotation : encrypted_message[term] + rotation;
     }
   }
 }
